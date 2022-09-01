@@ -1,0 +1,19 @@
+<div *ngFor="let todo of todos">
+    <app-todo [todo]="todo"></app-todo>
+</div>
+<form [formGroup]="taskForm" (ngSubmit)="saveTask()">
+    <mat-form-field class="full-width" appearance="fill">
+        <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+        <textarea matInput placeholder="Task description" formControlName="task"></textarea>
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+        <input matInput formControlName="due" [matDatepicker]="duePicker">
+        <mat-datepicker-toggle matSuffix [for]="duePicker"></mat-datepicker-toggle>
+        <mat-datepicker #duePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" type=submit>Add task</button>
+    </mat-card-actions>
+</form>
